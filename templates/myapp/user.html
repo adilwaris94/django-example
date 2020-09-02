@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% extends 'myapp/base.html' %}
+{% block body_block %}
+
+<html lang="en" dir="ltr">
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+</head>
+  </head>
+  <body>
+    <div class="container">
+
+
+    <h1>Printing list of User</h1>
+    {% if Users %}
+    <ol>
+     {% for user in Users  %}
+
+
+      <li class="list-group-item list-group-item-danger">User info</li>
+    <ul class="list-group">
+    <li class="list-group-item list-group-item-success">First Name: {{user.first_name}}</li>
+    <li class="list-group-item list-group-item-info">Last Name: {{user.last_name}}</li>
+    <li class="list-group-item list-group-item-warning">Email: {{user.email}}</li>
+    </ul>
+
+    {% endfor %}
+    </ol
+
+    {% endif %}
+  </div>
+
+{% endblock %}

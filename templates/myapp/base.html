@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  </head>
+  <body>
+
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href={% url 'myapp:index' %}>Home</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="{% url 'admin:index' %}">Admin</a></li>
+          <li><a href="{% url 'myapp:user' %}">User list</a></li>
+          <li><a href="{% url 'myapp:signup' %}">User form</a></li>
+          <li><a href="{% url 'myapp:Register' %}">User Registration</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'myapp:user_logout' %}">Logout</a></li>
+          {% else %}
+          <li><a href="{% url 'myapp:user_login' %}">Login</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+
+
+
+<div class="container">
+  {% block body_block %}
+  <div class="container">
+    <h3>Basic Navbar Example</h3>
+    <p>A navigation bar is a navigation header that is placed at the top of the page.</p>
+  </div>
+  {% endblock %}
+</div>
+
+  </body>
+</html>

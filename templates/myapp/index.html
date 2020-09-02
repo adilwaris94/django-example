@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+{% block body_block %}
+
+    <a href="{% url  'myapp:user'  %}">Click me</a>
+    <a href="{% url "myapp:signup" %}">Sign Up</a>
+    <h1>hello my first temp</h1>
+    {% if topics %}
+    <table>
+      <thead>
+        <th>Topics List</th>
+      </thead>
+
+      {% for a in topics %}
+      <tr>
+        <td>{{a.top_name}}</td>
+      </tr>
+      {% endfor%}
+
+
+    </table>
+    {% endif %}
+
+    <h1>hello my Second temp</h1>
+    {% if access %}
+    <table>
+      <thead>
+        <th>Websites</th>
+        <th>Access Date</th>
+      </thead>
+
+      {% for acc in access %}
+      <tr>
+        <td>{{acc.name| cut:'o' }}</td> <!--using filter to cut b from acc.name-->
+        <td>{{acc.date}}</td>
+      </tr>
+      {% endfor%}
+
+
+    </table>
+    {% endif %}
+
+    <div class="container">
+    <div class="jumbotron">
+    <h1>This is from After registration</h1>
+        {% if registered %}
+
+        <h2>User is successfully created </h2>
+        {% endif %}
+    </div>
+
+    </div>
+
+
+{% endblock %}
